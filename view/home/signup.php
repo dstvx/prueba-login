@@ -47,7 +47,7 @@
         </div>
     </form>
     <div class="login col-3 mt-3">
-        Tienes una cuenta? <a href="signup.php" style="text-decoration: none;">Inicia Sesion</a>
+        Tienes una cuenta? <a href="login.php" style="text-decoration: none;">Inicia Sesion</a>
     </div>
 </div>
 

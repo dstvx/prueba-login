@@ -1,6 +1,6 @@
 CREATE TABLE usuarios(
 	id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-	correo VARCHAR(150) NOT NULL unique KEY,
+	correo VARCHAR(150) NOT NULL unique,
+	rut VARCHAR(10) NOT NULL UNIQUE CHECK (rut REGEXP '^[0-9]{7,8}-[0-9Kk]$'), /* Sin puntos, con guion */
 	PASSWORD VARCHAR(150) NOT null
-	
 )
