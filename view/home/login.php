@@ -38,7 +38,7 @@
         </div>
     </form>
     <div class="login col-3 mt-3">
-        Nuevo aquí? <a href="login.php" style="text-decoration: none;">Create una cuenta</a>
+        Nuevo aquí? <a href="signup.php" style="text-decoration: none;">Create una cuenta</a>
     </div>
 </div>
 
