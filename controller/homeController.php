@@ -7,9 +7,11 @@
             $this->MODEL = new homeModel();
         }
         public function guardarUsuario($correo,$password,$rut){
-            $valor = $this->MODEL->agregarNuevoUsuario($this->limpiarcorreo($correo), $this->encriptarcontraseña($this->limpiarcadena($password)), $this->limpiarcadena($rut));
-            return $valor;
-        }
+            if ($this->MODEL->agregarNuevoUsuario($correo, $password, $rut) === false) {
+                return "El RUT ingresado no es válido.";
+            }
+            return "Usuario registrado correctamente.";
+            }
         public function limpiarcadena($campo){
             $campo = strip_tags($campo);
             $campo = filter_var($campo, FILTER_UNSAFE_RAW);

@@ -17,6 +17,7 @@
             if (!$this->validarRut($rut)) {
                 return false;
             }
+            
             try {
                 $statement->execute();
                 return true;
