@@ -28,7 +28,7 @@
             </div>
             <input type="password" name="password" class="form-control" id="password">
         </div>
-        <?php if(!empty($_GET['erro'])):?>
+        <?php if(!empty($_GET['error'])):?>
             <div id="alertError" style="margin: auto;" class="alert alert-danger mb-2" role="alert">
                 <?= !empty($_GET['error']) ? $_GET['error'] : ""?>
             </div>
