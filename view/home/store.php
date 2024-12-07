@@ -3,14 +3,15 @@
     $obj = new homeController();
     $correo = $_POST['correo'];
     $contraseña = $_POST['contraseña'];
+    $rut = $_POST['rut'];
     $confirmarContraseña = $_POST['confirmarContraseña'];
     $error = "";
-    if(empty($correo) && empty($contraseña) && empty($confirmarContraseña)){
+    if (empty($correo) && empty($contraseña) && empty($confirmarContraseña)){
         $error .= "<li>Los campos son iguales</li>";
         header("Location:signup.php?error=".$error."&&correo=".$correo."&&contraseña=".$contraseña."&&confirmarContraseña=".$confirmarContraseña);
-    }else if($correo || $contraseña || $confirmarContraseña){
+    } else if($correo || $contraseña || $confirmarContraseña){
         if($contraseña == $confirmarContraseña){
-            if($obj->guardarUsuario($correo,$contraseña) == false){
+            if($obj->guardarUsuario($correo,$contraseña, $rut) == false){
                 $error .= "<li>Correo agregado</li>";
                 header("Location:signup.php?error=".$error."&&correo=".$correo."&&contraseña=".$contraseña."&&confirmarContraseña=".$confirmarContraseña);
             }else{

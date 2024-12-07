@@ -7,9 +7,10 @@
             $pdo = new db();
             $this->PDO = $pdo->conexion();
         }
-        public function agregarNuevoUsuario($correo,$password){
-            $statement = $this->PDO->prepare("INSERT INTO usuarios values(null,:correo, :password)");
+        public function agregarNuevoUsuario($correo,$password,$rut){
+            $statement = $this->PDO->prepare("INSERT INTO usuarios (correo, rut, `PASSWORD`) VALUES (:correo, :rut, :password)");
             $statement->bindParam(":correo",$correo);
+            $statement->bindParam(":rut",$rut);
             $statement->bindParam(":password",$password);
             try {
                 $statement->execute();
@@ -19,7 +20,7 @@
             }
         }
         public function obtenerclave($correo){
-            $statement = $this->PDO->prepare("SELECT password FROM usuarios WHERE correo = :correo");
+            $statement = $this->PDO->prepare("SELECT `PASSWORD` FROM usuarios WHERE correo = :correo");
             $statement->bindParam(":correo",$correo);
             return ($statement->execute()) ? $statement->fetch()['password'] : false;
         }
