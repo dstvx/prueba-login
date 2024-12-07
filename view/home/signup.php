@@ -21,8 +21,7 @@
         </div>
         <div class="mb-3">
             <label for="rut" class="form-label">RUT</label>
-            <input type="text" name="rut" value="<?= (!empty($_GET['rut'])) ? $_GET['rut'] : "" ?>" class="form-control" id="rut" placeholder="12345678-K" pattern="^[0-9]{7,8}-[0-9Kk]{1}$" 
-                title="Por favor, ingresa un RUT válido (ejemplo: 12345678-K)">
+            <input type="text" name="rut" value="<?= (!empty($_GET['rut'])) ? $_GET['rut'] : "" ?>" class="form-control" id="rut" placeholder="12345678-K">
         </div>
 
         <div class="mb-3">
