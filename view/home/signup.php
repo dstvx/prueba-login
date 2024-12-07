@@ -31,7 +31,7 @@
                     <i id="eyepassword" class="fa-solid fa-eye changePassword"></i>
                 </button>
             </div>
-            <input type="password" name="contraseña" value="<?= (!empty($_GET['contraseña'])) ? $_GET['contraseña'] : "" ?>" class="form-control" id="password">
+            <input type="password" name="password" value="<?= (!empty($_GET['password'])) ? $_GET['password'] : "" ?>" class="form-control" id="password">
         </div>
         <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label">Repeat the password</label>
@@ -40,7 +40,7 @@
                     <i id="eyepassword2" class="fa-solid fa-eye changePassword"></i>
                 </button>
             </div>
-            <input type="password" name="confirmarContraseña" value="<?= (!empty($_GET['confirmarContraseña'])) ? $_GET['confirmarContraseña'] : "" ?>" class="form-control" id="password2">
+            <input type="password" name="confirmarPassword" value="<?= (!empty($_GET['confirmarPassword'])) ? $_GET['confirmarPassword'] : "" ?>" class="form-control" id="password2">
         </div>
         <?php if(!empty($_GET['error'])):?>
             <div id="alertError" style="margin: auto;" class="alert alert-danger mb-2" role="alert">

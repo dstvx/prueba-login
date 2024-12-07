@@ -6,8 +6,8 @@
             require_once("c://xampp/htdocs/login/model/homeModel.php");
             $this->MODEL = new homeModel();
         }
-        public function guardarUsuario($correo,$contraseña,$rut){
-            $valor = $this->MODEL->agregarNuevoUsuario($this->limpiarcorreo($correo), $this->encriptarcontraseña($this->limpiarcadena($contraseña)), $this->limpiarcadena($rut));
+        public function guardarUsuario($correo,$password,$rut){
+            $valor = $this->MODEL->agregarNuevoUsuario($this->limpiarcorreo($correo), $this->encriptarcontraseña($this->limpiarcadena($password)), $this->limpiarcadena($rut));
             return $valor;
         }
         public function limpiarcadena($campo){
