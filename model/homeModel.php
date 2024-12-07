@@ -20,9 +20,9 @@
             }
         }
         public function obtenerclave($correo){
-            $statement = $this->PDO->prepare("SELECT `PASSWORD` FROM usuarios WHERE correo = :correo");
+            $statement = $this->PDO->prepare("SELECT PASSWORD FROM usuarios WHERE correo = :correo");
             $statement->bindParam(":correo",$correo);
-            return ($statement->execute()) ? $statement->fetch()['password'] : false;
+            return ($statement->execute()) ? $statement->fetch()['PASSWORD'] : false;
         }
     }
 
