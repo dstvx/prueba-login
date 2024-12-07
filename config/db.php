@@ -13,4 +13,7 @@
             }
         }
     }
+
+    $obj = new db();
+    print_r($obj->conexion());
 ?>
