@@ -20,6 +20,11 @@
             <input type="email" name="correo" value="<?= (!empty($_GET['correo'])) ? $_GET['correo'] : "" ?>" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
         </div>
         <div class="mb-3">
+            <label for="rut" class="form-label">RUT</label>
+            <input type="text" name="rut" value="<?= (!empty($_GET['rut'])) ? $_GET['rut'] : "" ?>" class="form-control" id="rut" placeholder="12345678-K">
+        </div>
+
+        <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label">Password</label>
             <div class="box-eye">
                 <button type="button" onclick="mostrarContraseña('password','eyepassword')">
