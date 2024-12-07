@@ -4,22 +4,22 @@
     $correo = $_POST['correo'];
     $password = $_POST['password'];
     $rut = $_POST['rut'];
-    $confirmarContraseña = $_POST['confirmarPassword'];
+    $confirmarPassword = $_POST['confirmarPassword'];
     $error = "";
-    if (empty($correo) && empty($password) && empty($confirmarContraseña)){
+    if (empty($correo) && empty($password) && empty($confirmarPassword)){
         $error .= "<li>Los campos son iguales</li>";
-        header("Location:signup.php?error=".$error."&&correo=".$correo."&&password=".$password."&&confirmarPassword=".$confirmarContraseña);
-    } else if($correo || $password || $confirmarContraseña){
-        if($password == $confirmarContraseña){
+        header("Location:signup.php?error=".$error."&&correo=".$correo."&&password=".$password."&&confirmarPassword=".$confirmarPassword);
+    } else if($correo || $password || $confirmarPassword){
+        if($password == $confirmarPassword){
             if($obj->guardarUsuario($correo,$password, $rut) == false){
                 $error .= "<li>Correo agregado</li>";
-                header("Location:signup.php?error=".$error."&&correo=".$correo."&&password=".$password."&&confirmarPassword=".$confirmarContraseña);
+                header("Location:signup.php?error=".$error."&&correo=".$correo."&&password=".$password."&&confirmarPassword=".$confirmarPassword);
             }else{
                 header("Location:login.php");
             }
         }else{
             $error .= "<li>Las contraseñas son iguales</li>";
-            header("Location:signup.php?error=".$error."&&correo=".$correo."&&password=".$password."&&confirmarPassword=".$confirmarContraseña);
+            header("Location:signup.php?error=".$error."&&correo=".$correo."&&password=".$password."&&confirmarPassword=".$confirmarPassword);
         }
     }
 ?>

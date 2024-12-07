@@ -22,12 +22,12 @@
             $campo = htmlspecialchars($campo);
             return $campo;
         }
-        public function encriptarcontraseña($contraseña){
-            return password_hash($contraseña,PASSWORD_DEFAULT);
+        public function encriptarcontraseña($password){
+            return password_hash($password,PASSWORD_DEFAULT);
         }
-        public function verificarusuario($correo, $contraseña) {
+        public function verificarusuario($correo, $password) {
             $keydb = $this->MODEL->obtenerclave($correo);
-            return (password_verify($contraseña, $keydb)) ? true : false;
+            return (password_verify($password, $keydb)) ? true : false;
         }
     }
 ?>
