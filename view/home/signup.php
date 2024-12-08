@@ -17,22 +17,22 @@
     <form action="store.php" method="POST" class="col-3 login" autocomplete="off">
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Email address</label>
-            <input type="email" name="correo" value="<?= (!empty($_GET['correo'])) ? $_GET['correo'] : "" ?>" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <input type="email" name="correo" value="<?= (!empty($_GET['correo'])) ? $_GET['correo'] : "" ?>" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="correo@dominio.com">
         </div>
         <div class="mb-3">
             <label for="rut" class="form-label">RUT</label>
-            <input type="text" name="rut" value="<?= (!empty($_GET['rut'])) ? $_GET['rut'] : "" ?>" class="form-control" id="rut" placeholder="12345678-K"pattern="^[0-9]{7,8}-[0-9Kk]{1}$" 
+            <input type="text" name="rut" value="<?= (!empty($_GET['rut'])) ? $_GET['rut'] : "" ?>" class="form-control" id="rut" placeholder="12345678-K" pattern="^[0-9]{7,8}-[0-9Kk]{1}$" 
                 title="Por favor, ingresa un RUT válido (ejemplo: 12345678-K)">
         </div>
 
         <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label">Password</label>
             <div class="box-eye">
-                <button type="button" onclick="mostrarContraseña('password','eyepassword')">
+                <button type="button" onclick="mostrarContraseña('password', 'eyepassword')">
                     <i id="eyepassword" class="fa-solid fa-eye changePassword"></i>
                 </button>
             </div>
-            <input type="password" name="password" value="<?= (!empty($_GET['password'])) ? $_GET['password'] : "" ?>" class="form-control" id="password">
+            <input type="password" name="password" value="<?= (!empty($_GET['password'])) ? $_GET['password'] : "" ?>" class="form-control" id="password" placeholder="Crea tu contraseña">
         </div>
         <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label">Repeat the password</label>
@@ -41,11 +41,11 @@
                     <i id="eyepassword2" class="fa-solid fa-eye changePassword"></i>
                 </button>
             </div>
-            <input type="password" name="confirmarPassword" value="<?= (!empty($_GET['confirmarPassword'])) ? $_GET['confirmarPassword'] : "" ?>" class="form-control" id="password2">
+            <input type="password" name="confirmarPassword" value="<?= (!empty($_GET['confirmarPassword'])) ? $_GET['confirmarPassword'] : "" ?>" class="form-control" id="password2" placeholder="Repite tu contraseña">
         </div>
         <?php if(!empty($_GET['error'])):?>
             <div id="alertError" style="margin: auto;" class="alert alert-danger mb-2" role="alert">
-                <?= !empty($_GET['error']) ? $_GET['error'] : ""?>
+                <?= htmlspecialchars($_GET['error']) ?>
             </div>
         <?php endif;?>
         <div class="d-grid gap-2">
