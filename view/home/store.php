@@ -5,21 +5,26 @@
     $password = $_POST['password'];
     $rut = $_POST['rut'];
     $confirmarPassword = $_POST['confirmarPassword'];
+    
     $error = "";
-    if (empty($correo) && empty($password) && empty($confirmarPassword)){
-        $error .= "<li>Los campos son iguales</li>";
-        header("Location:signup.php?error=".$error."&&correo=".$correo."&&password=".$password."&&confirmarPassword=".$confirmarPassword);
-    } else if($correo || $password || $confirmarPassword){
-        if($password == $confirmarPassword){
-            if($obj->guardarUsuario($correo,$password, $rut) == false){
-                $error .= "<li>Correo agregado</li>";
-                header("Location:signup.php?error=".$error."&&correo=".$correo."&&password=".$password."&&confirmarPassword=".$confirmarPassword);
-            }else{
-                header("Location:login.php");
-            }
-        }else{
-            $error .= "<li>Las contraseñas son iguales</li>";
-            header("Location:signup.php?error=".$error."&&correo=".$correo."&&password=".$password."&&confirmarPassword=".$confirmarPassword);
-        }
+    if (empty($correo) || empty($password) || empty($confirmarPassword)){
+        $error = "Todos los campos son obligatorios";
+        header("Location:signup.php?error=".urlencode($error)."&correo=".$correo."&rut=".$rut);
+        exit();
     }
+    
+    if($password != $confirmarPassword){
+        $error = "Las contraseñas no coinciden";
+        header("Location:signup.php?error=".urlencode($error)."&correo=".$correo."&rut=".$rut);
+        exit();
+    }
+    
+    $resultado = $obj->guardarUsuario($correo, $password, $rut);
+    
+    if (strpos($resultado, "correctamente") !== false) {
+        header("Location:login.php");
+    } else {
+        header("Location:signup.php?error=".urlencode($resultado)."&correo=".$correo."&rut=".$rut);
+    }
+    exit();
 ?>
